@@ -1,5 +1,8 @@
 import Head from 'next/head'
-import Link from 'next/link'
+import { Col, Container, Row } from 'react-bootstrap';
+import Header from "../components/Header";
+import Image from 'next/image'
+
 
 export default function Home() {
 
@@ -11,50 +14,43 @@ export default function Home() {
     <div>
       <Head>
         <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="images/doge.png" />
       </Head>
-
+      <Header></Header>
       <main>
-      <h1 className="font-weight-bold">Kevin Adams</h1>
-      <h1 className="display-2 font-italic">Full Stack web developer</h1>
-      <h1 className="display-3 text-strong"><Link href='/posts/first-post'>Albuquerque, NM</Link></h1>
+      <Container fluid>
+        <Row>
+          <Col className="d-flex justify-content-center">
+            <img src="/images/up-arrow.png" width={125} className="py-5 d-none d-lg-block" />
+          </Col>
+        </Row>
+        <Row>
+          <Col className="d-flex align-items-center justify-content-center">
+            <img src="/images/left-arrow.png" className="img-fluid d-none d-lg-block" />
+          </Col>
+          <Col lg={6} className="pt-5">
+            <h1 className="display-1">Kevin Adams</h1>
+            <h1 className="display-4">Full Stack web developer</h1>
+            <p className="display-5">Albuquerque, NM</p>
+          </Col>
+          <Col lg={4}>
+            <img src="/images/profile.jpeg" className="img-fluid rounded-circle" />
+          </Col>
+          <Col className="d-flex align-items-center justify-content-center">
+            <img src="/images/right-arrow.png" className="img-fluid d-none d-lg-block" />
+          </Col>
+        </Row>
+        <Row>
+          <Col className="d-flex justify-content-center">
+            <img src="/images/down-arrow.png" width={125} className="py-5 d-none d-lg-block" />
+          </Col>
+        </Row>
+      </Container>
 
-        <p>
-          Get started by editing{' '}
-          <code>pages/index.js</code>
-        </p>
-
-        <div>
-          <a href="https://nextjs.org/docs">
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn">
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
       </main>
 
-      <footer className="bg-dark navbar text-white">
-        <p>©<a className="text-white text-decoration-none" href="https://github.com/kadams34">Kevin Adams</a>&nbsp;|&nbsp;{getCurrentYear()}</p>
+      <footer className="bg-dark text-white py-3">
+        <p className="text-center mb-0">©<a className="text-white text-decoration-none" href="https://github.com/kadams34">Kevin Adams</a>&nbsp;|&nbsp;{getCurrentYear()}</p>
       </footer>
     </div>
   )
