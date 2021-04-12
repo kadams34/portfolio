@@ -2,16 +2,19 @@ import '../styles/globals.css'
 import 'bootstrap/dist/css/bootstrap.css'
 import Layout from '../components/layout'
 import Head from 'next/head'
+import {AnimatePresence} from 'framer-motion'
 
-function MyApp({ Component, pageProps }) {
+function MyApp({ Component, pageProps, router }) {
   return (
     <Layout>
-      <Head>
-        <title>Home</title>
-        <link rel="icon" href="/favicon.png" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-      </Head>
-      <Component {...pageProps} />
+      <AnimatePresence exitBeforeEnter>
+        <Head>
+          <title>Home</title>
+          <link rel="icon" href="/favicon.png" />
+          <meta name="viewport" content="width=device-width, initial-scale=1" />
+        </Head>
+        <Component {...pageProps} key={router.route} />
+      </AnimatePresence>
     </Layout>
   )
 }

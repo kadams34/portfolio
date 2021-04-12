@@ -37,7 +37,7 @@ const Header = () => {
             </Nav>
           </Navbar.Collapse>
         </div>
-      </Navbar>
+        </Navbar>
         </>
     )
 }
