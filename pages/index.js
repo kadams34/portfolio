@@ -20,12 +20,12 @@ export default function Home() {
         <Container fluid>
           <Row>
             <Col className="d-flex justify-content-center">
-              <img src="/images/up-arrow.png" width={125} className="py-5 d-none d-lg-block" />
+              <img src="/images/up-arrow.png" width={75} className="py-5 d-none d-lg-block" />
             </Col>
           </Row>
           <Row>
             <Col className="d-flex align-items-center justify-content-center">
-              <img src="/images/left-arrow.png" className="img-fluid d-none d-lg-block" />
+              <img src="/images/left-arrow.png" width={37} className="img-fluid d-none d-lg-block" />
             </Col>
             <Col lg={6} className="pt-5">
               <h1 className="display-1">Kevin Adams</h1>
@@ -36,12 +36,12 @@ export default function Home() {
               <img src="/images/profile.jpeg" className="img-fluid rounded-circle" />
             </Col>
             <Col className="d-flex align-items-center justify-content-center">
-              <img src="/images/right-arrow.png" className="img-fluid d-none d-lg-block" />
+              <img src="/images/right-arrow.png" width={37} className="img-fluid d-none d-lg-block" />
             </Col>
           </Row>
           <Row>
             <Col className="d-flex justify-content-center">
-              <img src="/images/down-arrow.png" width={125} className="py-5 d-none d-lg-block" />
+              <img src="/images/down-arrow.png" width={75} className="py-5 d-none d-lg-block" />
             </Col>
           </Row>
         </Container>

@@ -3,6 +3,7 @@ import { Col, Container, Row } from 'react-bootstrap';
 import Footer from '../components/Footer';
 import Header from "../components/Header";
 import { motion } from 'framer-motion'
+import Link from 'next/link';
 
 
 export default function Portfolio() {
@@ -17,7 +18,7 @@ export default function Portfolio() {
       <Container>
         <Row>
             <Col className="d-flex justify-content-center">
-                <img src="/images/up-arrow.png" width={125} className="py-5 d-none d-lg-block" />
+                <Link href="/" passHref><a><img src="/images/up-arrow.png" width={125} className="py-5 d-none d-lg-block" /></a></Link>
             </Col>
         </Row>
       </Container>

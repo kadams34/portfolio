@@ -1,6 +1,6 @@
 import '../styles/globals.css'
 import 'bootstrap/dist/css/bootstrap.css'
-import Layout from '../components/layout'
+import Layout from '../components/Layout'
 import Head from 'next/head'
 import {AnimatePresence} from 'framer-motion'
 
