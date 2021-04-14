@@ -9,9 +9,9 @@ import Link from 'next/link';
 export default function Portfolio() {
 
   return (
-    <motion.div exit={{ y: "100%" }} initial={{ y: "100%" }} animate={{ y: 0 }} transition={{ duration: .4 }}>
+    <motion.div exit={{ y: "100%", opacity: .3 }} initial={{ y: "100%", opacity: .3 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: .4 }}>
       <Head>
-        <title>Create Next App</title>
+        <title>Portfolio</title>
         <link rel="icon" href="images/doge.png" />
       </Head>
       <Header></Header>

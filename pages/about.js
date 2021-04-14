@@ -9,9 +9,9 @@ import Link from 'next/link';
 export default function About() {
 
   return (
-    <motion.div exit={{ x: "-100%" }} initial={{ x: "-100%" }} animate={{ x: 0 }} transition={{ duration: .4 }}>
+    <motion.div exit={{ x: "-100%", opacity: .3 }} initial={{ x: "-100%", opacity: .3 }} animate={{ x: 0, opacity: 1 }} transition={{ duration: .4 }}>
       <Head>
-        <title>Create Next App</title>
+        <title>About</title>
         <link rel="icon" href="images/doge.png" />
       </Head>
       <Header></Header>
