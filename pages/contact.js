@@ -4,9 +4,21 @@ import Footer from '../components/Footer';
 import Header from "../components/Header";
 import { motion } from 'framer-motion'
 import Link from 'next/link';
+import emailjs from 'emailjs-com'
 
 
 export default function Contact() {
+
+    function sendEmail(e) {
+        e.preventDefault();
+
+        emailjs.sendForm('adamke_contact', 'contact_form', e.target, 'user_7moDwUlcYDRp8dkut2iTr')
+            .then((result) => {
+                console.log(result.text);
+            }, (error) => {
+                console.log(error.text);
+            });
+    }
 
   return (
     <motion.div exit={{ x: "100%", opacity: .5 }} initial={{ x: "100%", opacity: .5 }} animate={{ x: 0, opacity: 1 }} transition={{ duration: .4 }}>
@@ -29,26 +41,26 @@ export default function Contact() {
                 </Col>
                 <Col lg={1}></Col>
                 <Col lg={8}>
-                    <Form>
+                    <Form className="contact-form" onSubmit={sendEmail}>
                         <Form.Group controlId="exampleForm.ControlSelect1">
                             <Form.Label>Name</Form.Label>
-                            <Form.Control type="text" placeholder="Name" />
+                            <Form.Control type="text" placeholder="Name" name="user_name" />
                         </Form.Group>
                         <Form.Group controlId="exampleForm.ControlInput1">
                             <Form.Label>Email address</Form.Label>
-                            <Form.Control type="email" placeholder="name@example.com" />
+                            <Form.Control type="email" placeholder="name@example.com" name="user_email" />
                         </Form.Group>
                         <Form.Group controlId="exampleForm.ControlSelect1">
                             <Form.Label>Subject</Form.Label>
-                            <Form.Control type="text" placeholder="Subject" />
+                            <Form.Control type="text" placeholder="Subject" name="subject" />
                         </Form.Group>
                         <Form.Group controlId="exampleForm.ControlTextarea1">
                             <Form.Label>Message</Form.Label>
-                            <Form.Control as="textarea" rows={3} />
+                            <Form.Control as="textarea" rows={3} name="message" />
                         </Form.Group>
                         <div className="text-center">
-                        <button type="submit" class="btn btn-primary btn-lg m-3">Send</button>
-                        <button type="reset" class="btn btn-secondary btn-lg m-3" type="reset">Reset</button>
+                        <button type="submit" value="Send" className="btn btn-primary btn-lg m-3">Send</button>
+                        <button type="reset" className="btn btn-secondary btn-lg m-3">Reset</button>
                         </div>
                     </Form>
                 </Col>
