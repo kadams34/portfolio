@@ -5,16 +5,7 @@ import React, { useState } from 'react';
 
 
 class ContactForm extends React.Component {
-    sendEmail = (e) => {
-        e.preventDefault();
-
-        emailjs.sendForm('adamke_contact', 'contact_form', e.target, 'user_7moDwUlcYDRp8dkut2iTr')
-            .then((result) => {
-                console.log(result.text);
-            }, (error) => {
-                console.log(error.text);
-            });
-    }
+    
     constructor(props) {
         super(props)
 
@@ -66,16 +57,28 @@ class ContactForm extends React.Component {
     //     setValidated(true);
     // };
 
-    handleSubmit(e) {
+    handleSubmit = (e) => {
+        e.preventDefault()
         alert(`Email sent successfully!`)
         // validateForm(e)
-        this.sendEmail(e)
+        
         this.setState({
             userName: '',
             userEmail: '',
             subject: '',
             message: ''
         })
+
+        this.sendEmail = (e) => {
+            e.preventDefault();
+    
+            emailjs.sendForm('adamke_contact', 'contact_form', e.target, 'user_7moDwUlcYDRp8dkut2iTr')
+                .then((result) => {
+                    console.log(result.text);
+                }, (error) => {
+                    console.log(error.text);
+                });
+        }
     }
 
     render() {
