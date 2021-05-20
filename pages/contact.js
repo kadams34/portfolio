@@ -10,7 +10,7 @@ import ContactForm from '../components/ContactForm';
 export default function Contact() {
 
   return (
-    <motion.div exit={{ x: "100%", opacity: .5 }} initial={{ x: "100%", opacity: .5 }} animate={{ x: 0, opacity: 1 }} transition={{ duration: .4 }}>
+    <motion.div>
       <Head>
         <title>Contact</title>
         <link rel="icon" href="images/doge.png" />
@@ -25,10 +25,7 @@ export default function Contact() {
                 </Col>
             </Row>
             <Row>
-                <Col className="d-flex align-items-center justify-content-center">
-                    <Link href="/" passHref><a><img src="/images/left-arrow.png" className="img-fluid d-none d-lg-block" /></a></Link>
-                </Col>
-                <Col lg={1}></Col>
+                <Col lg={2}></Col>
                 <Col lg={8}>
                     <ContactForm />
                 </Col>

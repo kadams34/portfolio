@@ -2,18 +2,20 @@ import '../styles/globals.css'
 import 'bootstrap/dist/css/bootstrap.css'
 import Layout from '../components/Layout'
 import Head from 'next/head'
-import {AnimatePresence} from 'framer-motion'
+import {AnimatePresence, motion} from 'framer-motion'
 
 function MyApp({ Component, pageProps, router }) {
   return (
     <Layout>
-      <AnimatePresence exitBeforeEnter>
+      <AnimatePresence>
         <Head>
           <title>Home</title>
-          <link rel="icon" href="/favicon.png" />
+          <link rel="icon" href="images/doge.png" />
           <meta name="viewport" content="width=device-width, initial-scale=1" />
         </Head>
-        <Component {...pageProps} key={router.route} />
+        <motion.div key={router.route} exit={{ backgroundColor: 'white', filter: `invert()`, opacity: 0 }} initial={{ opacity: 0 }} animate={{ opacity: 1  }}>
+          <Component {...pageProps} />
+        </motion.div>
       </AnimatePresence>
     </Layout>
   )

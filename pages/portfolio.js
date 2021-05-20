@@ -9,18 +9,13 @@ import Link from 'next/link';
 export default function Portfolio() {
 
   return (
-    <motion.div exit={{ y: "100%", opacity: .3 }} initial={{ y: "100%", opacity: .3 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: .4 }}>
+    <motion.div>
       <Head>
         <title>Portfolio</title>
         <link rel="icon" href="images/doge.png" />
       </Head>
       <Header></Header>
       <Container>
-        <Row>
-            <Col className="d-flex justify-content-center">
-                <Link href="/" passHref><a><img src="/images/up-arrow.png" width={125} className="py-5 d-none d-lg-block" /></a></Link>
-            </Col>
-        </Row>
       </Container>
       <main className="main-subpage">
         <Container>
