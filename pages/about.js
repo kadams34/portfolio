@@ -1,9 +1,6 @@
 import Head from 'next/head'
 import { Col, Container, Row } from 'react-bootstrap';
-import Footer from '../components/Footer';
-import Header from "../components/Header";
 import { motion } from 'framer-motion'
-import Link from 'next/link';
 
 
 export default function About() {
@@ -12,9 +9,7 @@ export default function About() {
     <motion.div>
       <Head>
         <title>About</title>
-        <link rel="icon" href="images/doge.png" />
       </Head>
-      <Header></Header>
       <main>
         <Container>
             <Row>
@@ -31,7 +26,6 @@ export default function About() {
             </Row>
         </Container>
       </main>
-      <Footer></Footer>
     </motion.div>
   )
 }

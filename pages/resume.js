@@ -1,9 +1,6 @@
 import Head from 'next/head'
 import { Col, Container, Row } from 'react-bootstrap';
-import Footer from '../components/Footer';
-import Header from "../components/Header";
 import { motion } from 'framer-motion'
-import Link from 'next/link';
 
 
 export default function Resume() {
@@ -13,7 +10,6 @@ export default function Resume() {
       <Head>
         <title>Resume</title>
       </Head>
-      <Header></Header>
       <main className="main-subpage">
         <Container>
             <Row>
@@ -21,7 +17,6 @@ export default function Resume() {
             </Row>
         </Container>
       </main>
-      <Footer></Footer>
     </motion.div>
   )
 }

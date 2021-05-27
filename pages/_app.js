@@ -9,7 +9,6 @@ function MyApp({ Component, pageProps, router }) {
     <Layout>
       <AnimatePresence>
         <Head>
-          <title>Home</title>
           <link rel="icon" href="images/doge.png" />
           <meta name="viewport" content="width=device-width, initial-scale=1" />
         </Head>
