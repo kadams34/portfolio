@@ -17,24 +17,23 @@ export default function ContactForm() {
 
     const validation = Yup.object().shape({
         user_name: Yup.string()
-            .min(2, "I feel like one word names are for the super elite. Nice try, Elon.")
+            .min(2, "I feel like one letter names are for the super elite like Beyonce's kids or something. And I don't think Beyonce's kids are looking for a web developer so...")
             .max(100, "Your name is not that long, is it?")
             .required("C'mon, you have a name"),
         user_email: Yup.string()
             .email("That's not an email you silly goose")
             .max(100, "That's a really long email there, sport")
-            .required("just make one up"),
-        subject: Yup.string(),
+            .required("Just make one up it's fine"),
+        subject: Yup.string()
+            .required("You can literally put anything here. Go wild."),
         message: Yup.string()
             .min(5, "Elaborate please")
-            .max(200, "Whoa whoa whoa too much!")
+            .max(280, "Whoa whoa whoa too much!")
             .required("please tell me a story")
       })
 
-    function sendEmail(e) {
-        e.preventDefault();
-
-        emailjs.sendForm('adamke_contact', 'contact_form', e.target, 'user_7moDwUlcYDRp8dkut2iTr')
+    function sendEmail(object) {
+        emailjs.send('adamke_contact', 'contact_form', object, 'user_7moDwUlcYDRp8dkut2iTr')
             .then((result) => {
                 console.log(result.text);
             }, (error) => {
@@ -48,6 +47,14 @@ export default function ContactForm() {
         <Formik 
             initialValues={contactValues}
             validationSchema={validation}
+            onSubmit={(values, {setSubmitting, resetForm}) => {
+                setSubmitting(true);
+                setTimeout(() => {
+                    sendEmail(values)
+                    resetForm();
+                    setSubmitting(false);
+                }, 500);
+            }}
         >
             {( {values,
                 errors,
@@ -56,7 +63,7 @@ export default function ContactForm() {
                 handleBlur,
                 handleSubmit,
                 isSubmitting }) => (
-                    <Form className="contact-form" onSubmit={sendEmail}>
+                    <Form className="contact-form" onSubmit={handleSubmit}>
                         <Form.Group className="pt-2" controlId="ContactFormName">
                             <Form.Label>Name</Form.Label>
                             <Form.Control 
@@ -66,7 +73,15 @@ export default function ContactForm() {
                                 onChange={handleChange}
                                 onBlur={handleBlur}
                                 value={values.user_name}
+                                className={touched.user_name && errors.user_name ? "border-danger" : null}
                             />
+                            {
+                                touched.user_name && errors.user_name ? (
+                                    <div className="alert alert-danger">
+                                        {errors.user_name}
+                                    </div>
+                                ): null
+                            }
                         </Form.Group>
                         <Form.Group className="pt-2" controlId="ContactFormEmail">
                             <Form.Label>Email address</Form.Label>
@@ -77,7 +92,15 @@ export default function ContactForm() {
                                 onChange={handleChange}
                                 onBlur={handleBlur}
                                 value={values.user_email}
+                                className={touched.user_email && errors.user_email ? "border-danger" : null}
                             />
+                            {
+                                touched.user_email && errors.user_email ? (
+                                    <div className="alert alert-danger">
+                                        {errors.user_email}
+                                    </div>
+                                ): null
+                            }
                         </Form.Group>
                         <Form.Group className="pt-2" controlId="ContactFormSubject">
                             <Form.Label>Subject</Form.Label>
@@ -88,7 +111,15 @@ export default function ContactForm() {
                                 onChange={handleChange}
                                 onBlur={handleBlur}
                                 value={values.subject}
+                                className={touched.subject && errors.subject ? "border-danger" : null}
                             />
+                            {
+                                touched.subject && errors.subject ? (
+                                    <div className="alert alert-danger">
+                                        {errors.subject}
+                                    </div>
+                                ): null
+                            }
                         </Form.Group>
                         <Form.Group className="pt-2" controlId="ContactFormMessage">
                             <Form.Label>Message</Form.Label>
@@ -100,10 +131,18 @@ export default function ContactForm() {
                                 onChange={handleChange}
                                 onBlur={handleBlur}
                                 value={values.message}
+                                className={touched.message && errors.message ? "border-danger" : null}
                             />
+                            {
+                                touched.message && errors.message ? (
+                                    <div className="alert alert-danger">
+                                        {errors.message}
+                                    </div>
+                                ): null
+                            }
                         </Form.Group>
                         <div className="text-center">
-                        <button type="submit" value="Send" className="btn btn-primary btn-lg m-3">Send</button>
+                        <button type="submit" value="Send" className="btn btn-primary btn-lg m-3" disabled={isSubmitting}>Send</button>
                         {/* <button type="reset" className="btn btn-secondary btn-lg m-3">Reset</button> */}
                         </div>
                     </Form>
